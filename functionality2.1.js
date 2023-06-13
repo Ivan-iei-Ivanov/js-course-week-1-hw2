@@ -5,7 +5,7 @@ var kitchenLength = prompt("Колко сантиметра е дълга кух
 var kitchenHeigth = prompt("Колко сантиметра е висока кухнята?");
 const KITCHEN_AREA = kitchenWidth * kitchenLength * kitchenHeigth;
 var headChefName = prompt("Как се казва главният готвач?");
-var chefs = prompt("Колко готвачи работят в кухнята?");
+var chefCollection = prompt("Колко готвачи работят в кухнята?");
 var waiterCollection = prompt("Колко сервитьори работят в ресторанта?");
 var sauceChef = prompt("Как се казва отговорника на сосовете?");
 var kitchenMinTemperature = parseInt(
@@ -24,7 +24,7 @@ var optionalQuestionsQuery = prompt(
 );
 if (optionalQuestionsQuery === "да" || optionalQuestionsQuery === "Да") {
   var hasRefrigerator = prompt("Разполагате ли с хладилник?");
-  var hassGasStove = prompt("Разполагате ли с газов котлон?");
+  var hasGasStove = prompt("Разполагате ли с газов котлон?");
   var hasConvectionOven = prompt("Разполагате ли с конвектомат?");
   var hasElectricGrill = prompt("Разполагате ли с електрическа скара?");
   var hasKitchenHood = prompt("Разполагате ли с аспиратор?");
@@ -50,7 +50,7 @@ do {
   )
 );
 if (foodDishType === MEAL_TYPES.MEAT) {
-  meatDishType = prompt(
+  portionSize = prompt(
     "Каква порция по размер желаете? Малка, средна или голяма"
   );
 
@@ -60,15 +60,15 @@ if (foodDishType === MEAL_TYPES.MEAT) {
     LARGE: "голяма порция",
   };
 
-  if (meatDishType === MEAT_PORTION_SIZE.SMALL) {
+  if (portionSize === MEAT_PORTION_SIZE.SMALL) {
     alert(
       "Вие поръчахте малка порция от 450 грама, благодарим Ви за поръчката."
     );
-  } else if (meatDishType === MEAT_PORTION_SIZE.MEDIUM) {
+  } else if (portionSize === MEAT_PORTION_SIZE.MEDIUM) {
     alert(
       "Вие поръчахте средна порция от 750 грама, благодарим Ви за поръчката."
     );
-  } else if (meatDishType === MEAT_PORTION_SIZE.LARGE) {
+  } else if (portionSize === MEAT_PORTION_SIZE.LARGE) {
     alert(
       "Вие поръчахте голяма порция от 950 грама, благодарим Ви за поръчката."
     );
@@ -107,7 +107,7 @@ if (foodDishType === MEAL_TYPES.MEAT) {
   // Check if can cook MEDIUM
   else if (
     conditions.hasConvectionOven ||
-    conditions.staffCount === 5 ||
+    conditions.chefCollection === 5 ||
     conditions.portionSize === PORTION_SIZES.MEDIUM ||
     conditions.chefName === "Иван"
   ) {
